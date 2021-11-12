@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    {% load static %}
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+    <link href="{% static 'css/my_custom.css' %}" rel="stylesheet">
+    <link rel="SHORTCUT ICON" href="{% static 'images/umbrella-fill.svg' %}" type="image/x-icon">
+    <title>{% block title %}ImageResizer{% endblock %}</title>
+  </head>
+  <body style="background: url({% static 'images/back.jpg' %});width:100%;font-family: 'Montserrat', sans-serif;" >
+
+    <div class="container-fluid mt-3">
+      <div class="row">
+        <div class="col-md-4"></div>
+        <div class="col-md-4">
+          <div class="card mb-3" style="background-color: #FDFDFD" >
+            <div class="card-body" style="background-color: #FDFDFD;padding:25px;text-align: center;">
+              <h5 class="card-title">Here you can change size of your image</h5>
+              <hr class="custom-hr">
+              <form method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <hr class="custom-hr">
+                <input type="submit" class="floating-button" name="files"></input>
+              </form>
+            </div>
+          </div>
+          <div class="col-md-4"></div>
+      </div>
+    </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
+
+
+  </body>
+</html>
